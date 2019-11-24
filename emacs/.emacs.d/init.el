@@ -24,7 +24,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
 	 (quote
-		(coffee-mode haskell-mode use-package undo-tree scss-mode omnisharp moody minions go-errcheck git-timemachine dracula-theme company-go auto-compile))))
+		(yasnippet coffee-mode haskell-mode use-package undo-tree scss-mode omnisharp moody minions go-errcheck git-timemachine dracula-theme company-go auto-compile))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

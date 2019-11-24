@@ -153,7 +153,7 @@ I'm also partial to =git-timemachine=, which lets you quickly page through the
 history of a file.
 
 #+begin_src emacs-lisp
-  (use-package git-timemachine)
+	(use-package git-timemachine)
 #+end_src
 
 
@@ -181,7 +181,7 @@ This automatically scrolls the compilation window so I can always see the
 output.
 
 #+begin_src emacs-lisp
-  (setq compilation-scroll-output t)
+1  (setq compilation-scroll-output t)
 #+end_src
 
 
@@ -418,3 +418,74 @@ Quickly insert a block of elisp:
   (add-to-list 'org-structure-template-alist
                '("el" . "src emacs-lisp"))
 #+end_src
+
+
+** Task and org-capture management
+
+
+#+begin_src emacs-lisp
+  (setq org-directory "~/org")
+
+  (defun org-file-path (filename)
+    "Return the absolute address of an org file, given its relative name."
+    (concat (file-name-as-directory org-directory) filename))
+
+  (setq org-inbox-file "~/Dropbox/inbox.org")
+  (setq org-index-file (org-file-path "index.org"))
+  (setq org-archive-location
+        (concat (org-file-path "archive.org") "::* From %s"))
+#+end_src
+
+** Import tasks from inbox to index
+
+
+
+
+
+* Utilities
+
+#+BEGIN_SRC emacs-lisp
+
+(global-set-key (kbd "M-o") 'other-window)
+
+#+END_SRC
+
+
+** I want IDO Mode enabled by default
+
+#+BEGIN_SRC emacs-lisp
+
+(ido-mode t)
+
+#+END_SRC
+
+
+
+** Visit Configuration file:
+
+#+BEGIN_SRC emacs-lisp
+
+	(defun visit-config ()
+		(interactive)
+	(find-file "~/.emacs.d/configuration.org")
+	)
+
+(global-set-key (kbd "C-c e") 'visit-config)
+
+#+END_SRC
+
+* Configure =yasnippet=
+
+#+BEGIN_SRC emacs-lisp
+
+(use-package yasnippet)
+
+(setq yas-snippet-dirs '("~/.emacs.d/snippets/text-mode"))
+(yas-global-mode 1)
+
+(setq yas/indent-line nil)
+
+#+END_SRC
+
+* Configure ivy and counsel 
+
